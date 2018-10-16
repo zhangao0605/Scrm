@@ -1,0 +1,218 @@
+<div class="content-wrapper page3" style="margin: 0 18px;min-width: 1500px">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-top: -40px">
+        <h1 style="font-size: 20px;font-weight:bold;margin-left: -18px">
+            客服统计
+            <!--<small>Version 2.0</small>-->
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!--好友概况-总数-男女比例-->
+        <div class="row" style="padding-top: 20px;width: 101.5%">
+            <div class="col-md-4 col-sm-6 col-xs-12"style="margin-left: -18px;position: relative ">
+                <div class="info-box bg-green">
+                    <span class="info-box-icon"><i class="fa fa-users"></i></span>
+
+                    <div class="info-box-content ">
+                        <span class="info-box-text page3-title-content" >今日交流人数</span>
+                        <span class="info-box-number page3-num-content">{{todayChats}}人</span>
+
+                        <!--<div class="progress">-->
+                            <!--<div class="progress-bar" style="width: 87%"></div>-->
+                        <!--</div>-->
+                        <!--<span class="progress-description">-->
+                    <!--昨日好友<span>888</span>人新增率<span>87%</span>-->
+                  <!--</span>-->
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12"style="margin-left: 18px;position: relative;left: 2px">
+                <div class="info-box bg-aqua">
+                    <span class="info-box-icon"><i class="fa fa-handshake-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text page3-title-content">今日收/发消息</span>
+                        <span class="info-box-number page3-num-content">{{todayReceivemessage}}条/{{todaySendmessage}}条</span>
+
+                        <!--<div class="progress">-->
+                            <!--<div class="progress-bar" style="width: 50%"></div>-->
+                        <!--</div>-->
+                        <!--<span class="progress-description">-->
+                   <!--昨日加好友<span>1000</span>新增率<span>87%</span>-->
+                  <!--</span>-->
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12"style="position: relative;right: -23px">
+                <div class="info-box bg-teal">
+                    <span class="info-box-icon"><i class="fa fa-user-o"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text page3-title-content">活跃客户数</span>
+                        <span class="info-box-number page3-num-content">{{todayActive}}</span>
+
+                        <!--<div class="progress">-->
+                            <!--<div class="progress-bar" style="width: 50%"></div>-->
+                        <!--</div>-->
+                        <!--<span class="progress-description">-->
+                   <!--昨日群组<span>1000</span>新增率<span>87%</span>-->
+                  <!--</span>-->
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+
+            <ul class=" si-ex-on  sidebar-menu1 slide-myself page1-slide col-md-1 col-sm-6 col-xs-12 page2-wecat4"
+                style="margin-left:40px;margin-top: -53px;border: 1px solid darkgrey;background-color: white;position: absolute;z-index: 10;right: 19.5%;">
+                <li class="treeview " style="width: 100%">
+                    <a href="" class="haha">
+                        <span>&#12288;选择微信号</span>
+                        <span class="pull-right-container"><i style="position: relative;margin-left: 45px"
+                                                              class="fa fa-angle-down "></i></span>
+                    </a>
+                    <ul class="treeview-menu page1-change-block">
+                        <li style="border-bottom: 1px dashed lightgray;margin-left: -4px"
+                            class="choseTelephone choseTelephoneTrue">
+                            <!--<a href="">-->
+                                <!--<label class="point">-->
+
+                                    <!--&nbsp;&nbsp;<i class="fa fa-check-circle-o"></i>&nbsp;&nbsp;选择微信号-->
+                                <!--</label>-->
+                            <!--</a>-->
+
+                        </li>
+                        <li class="choseTelephone">
+                            <a href="">
+                                <div class="form-group page1-chose" style="padding-top: 10px">
+                                    <label >
+                                        <i class="page-check-p"></i>
+                                        <input type="checkbox" class=" page1-checkbox checkbox-toggle checkAllTelephone" data="0">
+                                        &nbsp;&nbsp;全选
+                                    </label>
+                                    <label style="margin-left: 5%">
+                                        <i class="page-check-p"></i>
+                                        <input data="0" type="checkbox" class=" page1-checkbox-no checkbox-toggle checkbox-toggle-change">
+                                        &nbsp;&nbsp;反选
+                                    </label>
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li class="choseTelephone" ng-repeat="x in sendWechatIdsAll">
+                            <a href="">
+                                <div class="form-group page1-chose">
+                                    <label  data="{{x.id}}">
+                                        <i class="page-check-p"></i>
+                                        <input type="checkbox" data1='0'
+                                               class="wechatid isChange page1-checkbox-one" ng-click="page3Click($index)" data="{{x.id}}">
+                                        &nbsp;&nbsp;{{page5NmeSlice(x.wechatnickname)}}
+                                    </label>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="choseTelephone" style="padding-bottom: 10px">
+                            <a href="">
+                                <button ng-click="sendMsg()" style="margin-left: 2%;width: 84%;background-color:#3c8dbc;border: 1px solid transparent;color: #fff;box-shadow: none;border-radius: 2px "
+                                        type="button">确定
+                                </button>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                <!-- /.info-box -->
+            </ul>
+            <div class="page2-wecat1 page2-wecat5" style="position:absolute;z-index: 20;right: 13.7%;top: 88px;font-size: 16px">
+                选择时间：
+            </div>
+            <div class="col-md-2 demo page3-icon page2-wecat3" style="position:absolute;z-index: 20;right:-2.2%;top:80.5px">
+                <input type="text" style="height: 38px;width: 220px" id="config-demo" class="form-control">
+            </div>
+            <div class="row" style="margin-top: 80px;margin-left: -18px;width: 102.6%">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <h3 class="box-title" style="position: absolute;font-size: 18px;margin:13px">近一周消息统计</h3>
+                                    <div id="chat-one" style="height: 350px">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 30px">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h3 class="box-title" style="position: absolute;font-size: 18px;margin:13px">未沟通数</h3>
+                                    <div id="chat-two" style="height:350px;"></div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h3 class="box-title" style="position: absolute;font-size: 18px;margin:13px;color: inherit">最热沟通</h3>
+                                    <div id="chat-sree" style="height:350px;"></div>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+
+            <div class="row" style="padding-top: -2px;width: 102.5%;margin-left: -17px">
+                <div class="col-xs-12">
+                    <div class="box page2-search" >
+                        <div class="box-header">
+                            <h3 class="box-title" style="padding: 15px">任务列表</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body" style="padding: 20px">
+                            <table id="example2" class="table table-bordered table-striped example3">
+                                <thead>
+                                <tr>
+                                    <th class="table-center">任务名称</th>
+                                    <th class="table-center">状态</th>
+                                    <th class="table-center">添加时间</th>
+                                    <th class="table-center">完成时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="x1 in allRenwu">
+                                    <td class="table-center">{{x1.taskName}}</td>
+                                    <td class="table-center" ng-class="page2Colors(x1.taskStatus)">{{states(x1.taskStatus)}}</td>
+                                    <td class="table-center">{{x1.startTime}}</td>
+                                    <td class="table-center">{{x1.endTime}}</td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-warning alert-dismissible alert2">
+                <button type="button" class="closeAlert2 closealer">&times;</button>
+                <div class="alertCon">任务执行失败，请重试</div>
+            </div>
+            <div class="alert alert-success alert-dismissible alert1">
+                <button type="button" class="closeAlert1 closealer">&times;</button>
+                <h4><i class="icon fa fa-check"></i> 成功 !</h4>
+                <div class="alertCon">任务执行完毕</div>
+
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+
+    <!-- /.content -->
+</div>

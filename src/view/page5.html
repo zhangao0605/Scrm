@@ -1,0 +1,706 @@
+<div class="content-wrapper page4" style="margin: 0 18px;min-width: 1500px">
+    <section class="content-header" style="margin-top: -40px">
+        <h1 style="font-size: 20px;font-weight:bold;margin-left: -19px">
+            群组管理
+        </h1>
+    </section>
+
+    <section class="content">
+        <div class="lodings" ng-show="Page5showLoads">
+            <div></div>
+            <div>正在为您加载群组信息 . . . . . .</div>
+        </div>
+        <!--下拉列表选择及其操作-->
+        <div class="row" style="padding-top: 70px">
+            <!--选择微信号-->
+            <ul class="  sidebar-menu1 page1-slide slide-myself  col-sm-6 col-xs-12 chose-on-on"
+                style="border: 1px solid darkgrey;background-color: white;width: 9%;z-index: 10;position: absolute;right: 46%;top:75px;">
+                <li class="treeview " style="width: 100%">
+                    <a href="" class="chose-on ">
+                        <span>&#12288;选择微信号</span>
+                        <span class="pull-right-container"><i style="position: absolute;margin-left: 45px"
+                                                              class="fa fa-angle-down "></i></span>
+                    </a>
+                    <ul class="treeview-menu page1-change-block">
+                        <li style="border-bottom: 1px dashed lightgray;margin-left: -4px"
+                            class="choseTelephone choseTelephoneTrue">
+                            <!--<a href="">-->
+                            <!--<label class="point">-->
+
+                            <!--&nbsp;&nbsp;<i class="fa fa-check-circle-o fa-lg text-green"></i>&nbsp;&nbsp;选择微信号-->
+                            <!--</label>-->
+                            <!--</a>-->
+
+                        </li>
+                        <li class="choseTelephone">
+                            <a href="">
+                                <div class="form-group page1-chose" style="padding-top: 10px">
+                                    <label>
+                                        <i class="page-check-p"></i>
+                                        <input type="checkbox" class=" page1-checkbox  checkAllTelephone"
+                                               data="0">
+                                        &nbsp;&nbsp;全选
+                                    </label>
+                                    <label style="margin-left: 5%">
+                                        <i class="page-check-p"></i>
+                                        <input data="0" type="checkbox"
+                                               class=" page1-checkbox-no  checkbox-toggle-change">
+                                        &nbsp;&nbsp;反选
+                                    </label>
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li class="choseTelephone" ng-repeat="x4 in sendWechatIdsAll">
+                            <a href="">
+                                <div class="form-group page1-chose">
+                                    <label data="{{x4.id}}">
+                                        <i class="page-check-p"></i>
+                                        <input type="checkbox" data1='0'
+                                               class="wechatid isChange page1-checkbox-one page5-wechat-check" ng-click="page5Click($index)" data="{{x4.id}}">
+                                        &nbsp;&nbsp;{{page5NmeSlice(x4.wechatnickname)}}
+                                    </label>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="choseTelephone" style="padding-bottom: 10px">
+                            <a href="">
+                                <button ng-click="page4WechatsendMsg()"
+                                        style="margin-left: 2%;width: 84%;background-color:#3c8dbc;border: 1px solid transparent;color: #fff;box-shadow: none;border-radius: 2px "
+                                        type="button">确定
+                                </button>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- /.info-box -->
+            </ul>
+            <!--选择分组-->
+            <ul class="  sidebar-menu1 page1-slide slide-myself col-md-1 col-sm-6 col-xs-12 "
+                style="border: 1px solid darkgrey;background-color: white;position: absolute;z-index: 10;right: 36%;width: 9%;top:75px;">
+                <li class="treeview ">
+                    <a href="" class="chose-two">
+                        <span>&#12288;选择分组</span>
+                        <span class="pull-right-container"><i style="position: relative;right: 17%"
+                                                              class="fa fa-angle-down pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu page1-change-block-two">
+                        <li style="border-bottom: 1px dashed lightgray;margin-left: -4px"
+                            class="choseTelephone choseTelephoneTrue">
+                            <!--<a href="">-->
+                            <!--<label class="point">-->
+                            <!--&nbsp;&nbsp;<i class="fa fa-check-circle-o fa-lg text-green"></i>&nbsp;&nbsp;选择相关标签-->
+                            <!--</label>-->
+                            <!--</a>-->
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="form-group page1-chose" style="padding-top: 10px">
+                                    <label>
+                                        <i class="page-check-p"></i>
+                                        <input type="checkbox" class=" page4-group-checkall " data="0">
+                                        &nbsp;&nbsp;全选
+                                    </label>
+                                    <label style="margin-left: 5%">
+                                        <i class="page-check-p"></i>
+                                        <input data="0" type="checkbox"
+                                               class="  page4-group-checkall-change">
+                                        &nbsp;&nbsp;反选
+                                    </label>
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li class="choseTelephone" ng-repeat="x3 in initGroup" ng-mouseenter="mosego($index)">
+                            <a href="">
+                                <div class="form-group page1-chose">
+                                    <label data="{{$index}}">
+                                        <i class="page-check-p"></i>
+                                        <input type="checkbox" data1='0'
+                                               class="wechatid page4-isChange page4-group-group page5-group-group"ng-click="page5Click2($index)" data="{{x3.id}}">
+                                        &nbsp;&nbsp;{{page5NmeSlice(x3.chatRoomGroupName)}}
+                                    </label>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li style="padding-bottom: 10px">
+                            <a href="">
+                                <button style="margin-left: 2%;width: 84%;background-color:#3c8dbc;border: 1px solid transparent;color: #fff;box-shadow: none;border-radius: 2px "
+                                        type="button"ng-click="page4GroupsendMsg()">确定
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+            <!--选择标签-->
+            <ul class="  sidebar-menu1 page1-slide slide-myself col-md-1 col-sm-6 col-xs-12 "
+                style="border: 1px solid darkgrey;background-color: white;position: absolute;z-index: 10;right: 26%;width: 9%;top:75px;">
+                <li class="treeview ">
+                    <a href="" class="chose-two1">
+                        <span>&#12288;选择标签</span>
+                        <span class="pull-right-container"><i style="position: relative;right: 17%"
+                                                              class="fa fa-angle-down pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu page1-change-block-two1">
+                        <li style="border-bottom: 1px dashed lightgray;margin-left: -4px"
+                            class="choseTelephone1 choseTelephoneTrue1">
+                            <!--<a href="">-->
+                            <!--<label class="point">-->
+                            <!--&nbsp;&nbsp;<i class="fa fa-check-circle-o fa-lg text-green"></i>&nbsp;&nbsp;选择相关标签-->
+                            <!--</label>-->
+                            <!--</a>-->
+                        </li>
+
+                        <li class="choseTelephone1" ng-mouseenter="mosego($index)">
+                            <a href="">
+                                <div class="form-group page1-chose" style="margin-left: -8px">
+                                    <label data="{{$index}}">
+                                        <span>请输入标签名：</span>
+                                        <input type="text"
+                                               class="tag-touch">
+                                    </label>
+                                    <ul class=" tag-touch-list">
+                                        <li ng-repeat="x3 in tagSearchList" data="{{x3.id}}" data1="{{x3.tagname}}">{{$index+1}}. {{x3.tagname}}</li>
+                                    </ul>
+                                </div>
+
+                            </a>
+                        </li>
+                        <!--<li style="padding-bottom: 10px">-->
+                        <!--<a href="">-->
+                        <!--<button style="margin-left: 2%;width: 84%;background-color:#3c8dbc;border: 1px solid transparent;color: #fff;box-shadow: none;border-radius: 2px "-->
+                        <!--type="button">确定-->
+                        <!--</button>-->
+                        <!--</a>-->
+                        <!--</li>-->
+
+
+                    </ul>
+
+                </li>
+            </ul>
+            <!--批量分组打标签-->
+            <ul class="  sidebar-menu1 page1-slide slide-myself col-md-1 col-sm-6 col-xs-12 " ng-click="page4Sree3()"
+                style="border: 1px solid darkgrey;background-color: white;position: absolute;z-index: 10;right: 16%;width: 9%;;top:75px;">
+                <li class="treeview ">
+                    <a href="" class="chose-sree">
+                        <span>&#12288;批量分组/打标签</span>
+                        <span class="pull-right-container"><i style="position: relative;right: 10%"
+                                                              class="fa fa-angle-down pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu page1-change-block-sree ">
+                        <li class="page4-group3-one"><a style="font-size: 15px" href="" ng-click="allTaskGroup()"><i
+                                class="fa fa-circle-o text-red"></i>批量分组</a>
+
+                        <li class="page4-group3-two" ng-click="allTagFightShowMe()"><a
+                                style="font-size: 15px;padding-bottom: 20px" href=""><i
+                                class="fa fa-circle-o text-red"></i>批量打标签</a>
+                    </ul>
+
+                </li>
+            </ul>
+            <!--更多操作-->
+            <!--<ul class="  sidebar-menu1 page1-slide slide-myself col-md-1 col-sm-6 col-xs-12 "-->
+                <!--style="border: 1px solid darkgrey;background-color: white;position: absolute;z-index: 10;right: 16%;width: 9%;;top:75px;">-->
+                <!--<li class="treeview ">-->
+                    <!--<a href="" class="chose-four">-->
+                        <!--<span>&#12288;更多操作</span>-->
+                        <!--<span class="pull-right-container"><i style="position: relative;right: 10%"-->
+                                                              <!--class="fa fa-angle-down pull-right"></i></span>-->
+                    <!--</a>-->
+                    <!--<ul class="treeview-menu page1-change-block-four">-->
+
+                        <!--<li class="page4-group4-one" ng-click="sayGroupShow()"><a-->
+                                <!--style="font-size: 15px;padding-bottom: 20px" href=""><i-->
+                                <!--class="fa fa-circle-o text-maroon"></i>群发消息</a>-->
+                    <!--</ul>-->
+
+                <!--</li>-->
+            <!--</ul>-->
+            <!--&lt;!&ndash;每个分组中的标签&ndash;&gt;-->
+            <!--<div style="position: absolute;margin-top:40px;left:64.1%;z-index: 10;background-color: white;padding-top: 10px;border: 1px solid darkgrey;display: none"-->
+            <!--class="telephone col-md-1 col-sm-6 col-xs-12">-->
+            <!--<div class="form-group haha2 checkAll" ng-repeat="x2 in data2" data="{{x2.id}}">-->
+            <!--<label>-->
+            <!--<i class="page-check-p"></i>-->
+            <!--<input type="checkbox" data="{{x2.state}}" data1="{{$index}}" data2="{{x2.id}}"-->
+            <!--class=" telephoneOneCheck page4-checkbox-One-one">-->
+
+            <!--&nbsp;&nbsp;{{x2.num}}-->
+
+            <!--</label>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+        <!--好友列表表格-->
+        <div class="row page4-dataTable" style="margin-left: -33px;width: 104%;margin-top: -50px">
+            <div class="col-xs-12 page4-data page4-serach">
+                <div class="box">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table  class="page4-tab table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th style="width:3%">
+                                    <button type="button" class="btn btn-default btn-xs checkbox-toggle page5-checkbox-toggle-2" data="0"><i style="position: relative"
+                                                                                                                                                       class="fa fa-square-o page5-checkbox-toggle-1"></i>
+                                </button>
+                                    <!--<label>-->
+                                        <!--<i class="page-check-p"></i>-->
+                                        <!--<input type="checkbox" class=" page5-checkbox-toggle-2 " data="0">-->
+                                        <!--&nbsp;&nbsp;全选-->
+                                    <!--</label>-->
+                                </th>
+                                <th>基本资料</th>
+                                <th>组别</th>
+                                <th>标签</th>
+                                <th>群公告</th>
+                                <th style="width: 15%">活跃度</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody class="mailbox-messages page4-img">
+                            <tr ng-repeat="x in initData">
+                                <td><input type="checkbox" class="checkData page5-table-check" data="{{x.id}}"></td>
+                                <td style="width: 20%;cursor: pointer;" ng-click="page4trueShow(x.id) ">
+                                    <dl>
+                                        <dt><img
+                                                src="{{picSrc+x.chatRoomProfilePhoto}}"
+                                                alt=""></dt>
+                                        <dd style="position: relative;margin-top: 15px">
+                                            <span>{{page4NmeSlice(x.chatroomname)}}</span><span style="float: right">人</span><span
+                                                style="float: right">{{x.membercount}}</span><br>
+                                        </dd>
+                                    </dl>
+                                </td>
+                                <td style="width:10%">{{x.chatRoomGroup.chatRoomGroupName}}</td>
+                                <td style="width:20%">
+                                    <div class="leaonm">
+                                        <div class="resources1" ng-repeat="w1 in x.chatRoomTags[0] track by $index">{{w1}}</div>
+                                    </div>
+
+                                </td>
+                                <td style="width: 15%; "><div class="page5-auto-tell">{{x.chatroomannouncement}}</div></td>
+                                <td data="{{x.chatroomdegree}}" class="blod" style="border: none">
+                                    <div class="blod1"></div>
+                                    <div style="width: 30px" class="blod2"></div>
+                                    <div class="blod3"></div>
+                                    <div class="blod4"></div>
+                                    <div class="blod5"></div>
+                                </td>
+                                <td style="width:15%" class="table-nth-last">
+                                    <span class="table-nth-last-span" ng-click="fighttag(x.id)"><span class="fa fa-tag">&nbsp;&nbsp;</span>打标签</span>
+                                    <span class="table-nth-last-span" ng-click="giveGroups(x.id)"><span
+                                            class="fa fa-users">&nbsp;&nbsp;</span>分组</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="test1" class="test1  M-box1"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+        <!--点击好友基本资料弹出详细资料-->
+        <div class="giveGroup" ng-show="giveGroup">
+            <div class="giveGroup-header">
+                <span class="giveGroup-header-con">群详细资料</span>
+            </div>
+            <div class="giveGroup-content">
+                <div class="giveGroup-div1">
+                    <img class="giveGroup-div1-img1" src="{{moreGroupchatRoomProfilePhoto}}" alt="   ">
+                    <br>
+                    <br>
+                    <div style="margin-left: -2%">
+                        <span class="meIf">群昵称：<br><span class="meIf1">{{page5NmeSlice(moreGroupchatroomname)}}</span></span>
+                        <br>
+                        <br>
+                        <span class="meIf">来源微信：<br><span class="meIf1">{{moreGroupwechatnickname}}</span></span>
+                        <br>
+                        <br>
+                        <span class="meIf">来源设备：<br><span class="meIf1">{{moreGroupdevicenumber}}</span></span>
+                    </div>
+
+                </div>
+                <div class="giveGroup-div2">
+                    <div class=" giveGroup-tag" style="margin-top: 10px">
+                        <ul class="giveGroup-div2-con-right">
+                            <li class="col-md-4 col-sm-6 col-xs-6 meIf" style="margin-left: -30px">群成员列表：</li>
+                        </ul>
+                        <div class=" giveGroup-tag-con giveGroup-tag-con-auto1">
+                            <div class="row page4-dataTable">
+                                <div class="col-xs-12 page4-data page4-serach page5-data-friend">
+                                    <div class="box">
+                                        <!-- /.box-header -->
+                                        <div class="box-body lplplp">
+                                            <table class="page4-tab table table-bordered table-striped page5-table2">
+                                                <thead>
+                                                <tr>
+                                                    <th style="text-align: center">头像</th>
+                                                    <th style="text-align: center">昵称</th>
+                                                    <th style="text-align: center">性别</th>
+                                                    <th style="text-align: center">地域</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody class="mailbox-messages page4-img">
+                                                <tr ng-repeat="x4 in moreGroupAll">
+                                                    <td style="width: 10%;text-align: center" class="page5-img-small">
+                                                        <img src="{{x4.profilephoto}}"
+                                                             alt=""></td>
+                                                    <td style="width: 25%;text-align: center">{{page4NmeSlice(x4.chatroommembername)}}</td>
+
+                                                    <td style="width: 25%;text-align: center">{{page4Sex(x4.sex)}}</td>
+
+                                                    <td style="width: 40%;text-align: center">{{x4.city}}{{x4.province}}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--<div class=" giveGroup-say-div1">-->
+                    <!--<ul class="giveGroup-div2-con-right" style="display: flex">-->
+                    <!--<li class="col-md-4 col-sm-6 col-xs-6">描述：</li>-->
+                    <!--<li class="col-md-8 col-sm-6 col-xs-6"><textarea-->
+                    <!--style="width: 713px;margin-left: -39.6%;resize: none;text-indent: 5px;border-radius: 5px"></textarea>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+                    <div class="click-sure">
+                        <!--<button class="but-1" ng-click="page4sendMsg()" style="margin-left: -20px">提交更改</button>-->
+                        <button class="but-2" style="margin-left: -75%;margin-top: -50px" ng-click="page4closMsg()">关闭</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--好友交流记录-->
+        <div class="chatMore" ng-show="chatAll">
+            <div class="chatMore-header">
+                <span class="chatMore-header-con">沟通记录</span>
+            </div>
+            <div class="chatMore-content" style="margin-top: 10px">
+                <ul class="timeline">
+                    <li class="time-label">
+        <span class="bg-red">
+            所有沟通记录
+        </span>
+                    </li>
+                    <li>
+                        <i class="fa fa-handshake-o bg-aqua"></i>
+
+                        <div class="timeline-item">
+                            <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                            <h3 class="timeline-header no-border">Sarah Young accepted your friend request</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-handshake-o bg-aqua"></i>
+
+                        <div class="timeline-item">
+                            <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                            <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend
+                                request</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-handshake-o bg-aqua"></i>
+
+                        <div class="timeline-item">
+                            <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                            <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend
+                                request</h3>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
+                </ul>
+            </div>
+            <button class="but-3" style="margin-top: -15px" ng-click="page4ChatClosMsg()">关闭</button>
+        </div>
+        <!--批量打标签-->
+        <div class="allTagFight" ng-show="allTagFightShow">
+            <div class="allTagFight-header">
+                <span class="allTagFight-header-con">批量打标签</span>
+            </div>
+            <div class="allTagFightChoseGroup">
+                <ul style="display: flex;position:relative">
+                    <li>新增标签：
+
+                    </li>
+                    <li>
+                        <div class="newTag newTagappend page5-addTag1">
+                            <input type="text" id="tagValue3">
+                            <!--<button onclick="openUpdate()" class="openhaha1 btn btn-block btn-success">开启</button>-->
+                            <!--<button onclick="closeUpdate()" class="openhaha2 btn btn-block btn-danger">关闭</button>-->
+                        </div>
+
+                    </li>
+                </ul>
+                <ul style="display: flex;margin-top: 100px">
+                    <li>参考标签：
+                    </li>
+                    <li>
+                        <div class="newTag" style="height: 100px;border: none">
+                            <div class="resources click-add1" ng-click="clickAddTag(w.id,w.tagname)" data="{{w.id}}" ng-repeat="w in recommendTag">{{w.tagname}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="but-4" ng-click="page4allTagFightClosMsg()" style="margin-left: -55px">关闭</button>
+            <button class="but-6" style="margin-top: -37px;width: 110px;font-size: 18px"
+                    ng-click="page4allTagFightSendMsg()">保存
+            </button>
+        </div>
+        <!--群发消息-->
+        <div class="allTagFight" ng-show="sayGroup">
+            <div class="allTagFight-header">
+                <span class="allTagFight-header-con">群发消息</span>
+            </div>
+            <div class="allTagFightChoseGroup">
+                <ul style="display: flex;position:relative">
+                    <li>发送的内容：
+
+                    </li>
+                    <li>
+                        <div contenteditable="true" id="FontAndEmjoy6"
+                             class="FontAndEmjoy6  flag1 page9-say-hello"></div>
+                        <div class="emjoyDiv-page6">
+                            <span class="emjoyOpen-page6 fa fa-smile-o text-light-blue"></span>
+                            <div class="emjoyList-page6" style="display: none;margin-top: 3px" id="emjoyList-page6">
+                                <ul>
+                                    <li><img class="gg" src="images/100.gif" alt="[微笑]"></li>
+                                    <li><img class="gg" src="images/101.gif" alt="[撇嘴]"></li>
+                                    <li><img class="gg" src="images/102.gif" alt="[色]"></li>
+                                    <li><img class="gg" src="images/103.gif" alt="[发呆]"></li>
+                                    <li><img class="gg" src="images/104.gif" alt="[得意]"></li>
+                                    <li><img class="gg" src="images/105.gif" alt="[流泪]"></li>
+                                    <li><img class="gg" src="images/106.gif" alt="[害羞]"></li>
+                                    <li><img class="gg" src="images/107.gif" alt="[闭嘴]"></li>
+                                    <li><img class="gg" src="images/108.gif" alt="[睡]"></li>
+                                    <li><img class="gg" src="images/109.gif" alt="[大哭]'("></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/110.gif" alt="[尴尬]"></li>
+                                    <li><img class="gg" src="images/111.gif" alt="[发怒]"></li>
+                                    <li><img class="gg" src="images/112.gif" alt="[调皮]"></li>
+                                    <li><img class="gg" src="images/113.gif" alt="[呲牙]"></li>
+                                    <li><img class="gg" src="images/114.gif" alt="[惊讶]"></li>
+                                    <li><img class="gg" src="images/115.gif" alt="[难过]"></li>
+                                    <li><img class="gg" src="images/116.gif" alt="[酷]"></li>
+                                    <li><img class="gg" src="images/117.gif" alt="[冷汗]"></li>
+                                    <li><img class="gg" src="images/118.gif" alt="[抓狂]"></li>
+                                    <li><img class="gg" src="images/119.gif" alt="[吐]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/120.gif" alt="[偷笑]"></li>
+                                    <li><img class="gg" src="images/121.gif" alt="[愉快]"></li>
+                                    <li><img class="gg" src="images/122.gif" alt="[白眼]"></li>
+                                    <li><img class="gg" src="images/123.gif" alt="[傲慢]"></li>
+                                    <li><img class="gg" src="images/124.gif" alt="[饥饿]"></li>
+                                    <li><img class="gg" src="images/125.gif" alt="[困]"></li>
+                                    <li><img class="gg" src="images/126.gif" alt="[惊恐]"></li>
+                                    <li><img class="gg" src="images/127.gif" alt="[流汗]"></li>
+                                    <li><img class="gg" src="images/128.gif" alt="[憨笑]"></li>
+                                    <li><img class="gg" src="images/129.gif" alt="[悠闲]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/130.gif" alt="[奋斗]"></li>
+                                    <li><img class="gg" src="images/131.gif" alt="[咒骂]"></li>
+                                    <li><img class="gg" src="images/132.gif" alt="[疑问]"></li>
+                                    <li><img class="gg" src="images/133.gif" alt="[嘘]"></li>
+                                    <li><img class="gg" src="images/134.gif" alt="[晕]"></li>
+                                    <li><img class="gg" src="images/135.gif" alt="[疯了]"></li>
+                                    <li><img class="gg" src="images/136.gif" alt="[衰]"></li>
+                                    <li><img class="gg" src="images/137.gif" alt="[骷髅]"></li>
+                                    <li><img class="gg" src="images/138.gif" alt="[敲打]"></li>
+                                    <li><img class="gg" src="images/139.gif" alt="[再见]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/140.gif" alt="[擦汗]"></li>
+                                    <li><img class="gg" src="images/141.gif" alt="[抠鼻]"></li>
+                                    <li><img class="gg" src="images/142.gif" alt="[鼓掌]"></li>
+                                    <li><img class="gg" src="images/143.gif" alt="[糗大了]"></li>
+                                    <li><img class="gg" src="images/144.gif" alt="[坏笑]"></li>
+                                    <li><img class="gg" src="images/145.gif" alt="[左哼哼]"></li>
+                                    <li><img class="gg" src="images/146.gif" alt="[右哼哼]"></li>
+                                    <li><img class="gg" src="images/147.gif" alt="[哈欠]"></li>
+                                    <li><img class="gg" src="images/148.gif" alt="[鄙视]"></li>
+                                    <li><img class="gg" src="images/149.gif" alt="[委屈]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/150.gif" alt="[快哭了]"></li>
+                                    <li><img class="gg" src="images/151.gif" alt="[阴险]"></li>
+                                    <li><img class="gg" src="images/152.gif" alt="[亲亲]"></li>
+                                    <li><img class="gg" src="images/153.gif" alt="[吓]"></li>
+                                    <li><img class="gg" src="images/154.gif" alt="[可怜]"></li>
+                                    <li><img class="gg" src="images/155.gif" alt="[菜刀]"></li>
+                                    <li><img class="gg" src="images/156.gif" alt="[西瓜]"></li>
+                                    <li><img class="gg" src="images/157.gif" alt="[啤酒]"></li>
+                                    <li><img class="gg" src="images/158.gif" alt="[篮球]"></li>
+                                    <li><img class="gg" src="images/159.gif" alt="[乒乓]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/160.gif" alt="[咖啡]"></li>
+                                    <li><img class="gg" src="images/161.gif" alt="[饭]"></li>
+                                    <li><img class="gg" src="images/162.gif" alt="[猪头]"></li>
+                                    <li><img class="gg" src="images/163.gif" alt="[玫瑰]"></li>
+                                    <li><img class="gg" src="images/166.gif" alt="[爱心]"></li>
+                                    <li><img class="gg" src="images/167.gif" alt="[心碎]"></li>
+                                    <li><img class="gg" src="images/168.gif" alt="[蛋糕]"></li>
+                                    <li><img class="gg" src="images/169.gif" alt="[闪电]"></li>
+                                    <li><img class="gg" src="images/203.gif" alt="[左太极]"></li>
+                                    <li><img class="gg" src="images/204.gif" alt="[右太极]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/170.gif" alt="[炸弹]"></li>
+                                    <li><img class="gg" src="images/171.gif" alt="[刀]"></li>
+                                    <li><img class="gg" src="images/172.gif" alt="[足球]"></li>
+                                    <li><img class="gg" src="images/173.gif" alt="[瓢虫]"></li>
+                                    <li><img class="gg" src="images/174.gif" alt="[便便]"></li>
+                                    <li><img class="gg" src="images/175.gif" alt="[月亮]"></li>
+                                    <li><img class="gg" src="images/176.gif" alt="[太阳]"></li>
+                                    <li><img class="gg" src="images/177.gif" alt="[礼物]"></li>
+                                    <li><img class="gg" src="images/178.gif" alt="[拥抱]"></li>
+                                    <li><img class="gg" src="images/179.gif" alt="[强]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/180.gif" alt="[弱]"></li>
+                                    <li><img class="gg" src="images/181.gif" alt="[握手]"></li>
+                                    <li><img class="gg" src="images/182.gif" alt="[胜利]"></li>
+                                    <li><img class="gg" src="images/183.gif" alt="[抱拳]"></li>
+                                    <li><img class="gg" src="images/184.gif" alt="[勾引]"></li>
+                                    <li><img class="gg" src="images/185.gif" alt="[拳头]"></li>
+                                    <li><img class="gg" src="images/186.gif" alt="[差劲]"></li>
+                                    <li><img class="gg" src="images/187.gif" alt="[爱你]"></li>
+                                    <li><img class="gg" src="images/188.gif" alt="[NO]"></li>
+                                    <li><img class="gg" src="images/189.gif" alt="[OK]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/190.gif" alt="[爱情]"></li>
+                                    <li><img class="gg" src="images/191.gif" alt="[飞吻]"></li>
+                                    <li><img class="gg" src="images/192.gif" alt="[跳跳]"></li>
+                                    <li><img class="gg" src="images/193.gif" alt="[发抖]"></li>
+                                    <li><img class="gg" src="images/194.gif" alt="[怄火]"></li>
+                                    <li><img class="gg" src="images/195.gif" alt="[转圈]"></li>
+                                    <li><img class="gg" src="images/196.gif" alt="[磕头]"></li>
+                                    <li><img class="gg" src="images/197.gif" alt="[回头]"></li>
+                                    <li><img class="gg" src="images/198.gif" alt="[跳绳]"></li>
+                                    <li><img class="gg" src="images/199.gif" alt="[投降]"></li>
+                                </ul>
+                                <ul>
+                                    <li><img class="gg" src="images/200.gif" alt="[激动]"></li>
+                                    <li><img class="gg" src="images/201.gif" alt="[乱舞]"></li>
+                                    <li><img class="gg" src="images/202.gif" alt="[献吻]"></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="pic-up-list">
+                    <li><p>1</p><input type="file" upload-image1></li>
+                </ul>
+            </div>
+            <button class="but-4" ng-click="page4sayGroupClosMsg()" style="margin-left: -55px">关闭</button>
+            <button class="but-6" style="margin-top: -37px;width: 110px;font-size: 18px"
+                    ng-click="page4sayGroupSendMsg()">执行
+            </button>
+        </div>
+        <!--单个群组打标签-->
+        <div class="oneTagFight oneTagFightNew" ng-show="oneTagFight">
+            <div class="oneTagFight-header">
+                <span class="oneTagFight-header-con">打标签</span>
+            </div>
+            <div class="allTagFightChoseGroup">
+                <ul style="display: flex;position:relative">
+                    <li>新增标签：
+
+                    </li>
+                    <li>
+                        <div class="newTag page5-addTag2">
+                            <input type="text" id="tagValue4">
+                            <!--<button onclick="openUpdate()" class="openhaha1 btn btn-block btn-success">开启</button>-->
+                            <!--<button onclick="closeUpdate()" class="openhaha2 btn btn-block btn-danger">关闭</button>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="but-6" style="margin-top: -65px" ng-click="page4oneTagFightSendMsg()">保存</button>
+            <button class="but-4" style="margin-left: -9%;font-size: 14px;width: 90px;margin-top: -68px;position: relative"
+                    ng-click="page4oneTagFightClosMsg()">关闭
+            </button>
+        </div>
+        <!--单个群组分组-->
+        <div class="oneTagFight1" ng-show="oneGiveGroup">
+            <div class="oneTagFight-header">
+                <span class="oneTagFight-header-con">分组</span>
+            </div>
+            <div class="allTagFightChoseGroup">
+                <ul>
+                    <li>请选择分组：<select class="allTagFight-select page4-select-on-group">
+                        <option ng-repeat="x1 in initGroup" data="{{x1.id}}">{{x1.chatRoomGroupName}}</option>
+                    </select>
+                    </li>
+                </ul>
+            </div>
+            <button class="but-6" style="margin-top: -65px"  ng-click="page4oneGroupSendMsg()">保存</button>
+            <button class="but-4" style="margin-left: -9%;font-size: 14px;width: 90px;margin-top: -68px;position: relative"
+                    ng-click="page4oneGroupClosMsg()">关闭
+            </button>
+        </div>
+        <!--批量群组分组-->
+        <div class="oneTagFight1" ng-show="moreGiveGroup">
+            <div class="oneTagFight-header">
+                <span class="oneTagFight-header-con">群组批量分组</span>
+            </div>
+            <div class="allTagFightChoseGroup">
+                <ul>
+                    <li>请选择分组：<select class="allTagFight-select page4-select1">
+                        <option ng-repeat="x1 in initGroup" data="{{x1.id}}">{{x1.chatRoomGroupName}}</option>
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="fa fa-plus-square fa-lg text-light-blue " ng-click="addTagShow1()"></span><br><br>
+                        <span class="addTag" ng-show="addTagShowMe1" style="display: inline-block">新增分组：<input
+                                style="height: 40px;border-radius: 5px;border: 1px solid #A9A9A9;margin-left: 85px;text-indent: 10px"
+                                type="text"><button
+                                class="but-5-addTag trueAddTagGroup1" ng-click="trueAddTagGroup1()">确认添加</button></span>
+                    </li>
+                </ul>
+            </div>
+            <button class="but-6" ng-click="page4moreGroupSendMsg()">保存</button>
+            <button class="but-4" style="margin-left: -7%;font-size: 14px;width: 90px"
+                    ng-click="page4moreGroupClosMsg()">关闭
+            </button>
+        </div>
+        <!--成功提示框-->
+        <div class="alert alert-success alert-dismissible alert1">
+            <button type="button" class="closeAlert1 closealer">&times;</button>
+            <h4><i class="icon fa fa-check"></i> 成功 !</h4>
+            <div class="alertCon">任务执行完毕</div>
+
+        </div>
+        <!--失败提示框-->
+        <div class="alert alert-warning alert-dismissible alert2 ">
+            <button type="button" class="closeAlert2 closealer">&times;</button>
+            <!--<h4><i class="icon fa fa-check"></i></h4>-->
+            <div class="alertCon">任务执行失败，请重试</div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,25 @@
+<!--------------登录界面----------->
+<div class="login-page " ng-show="loginTrueFalse">
+    <div class="login-myself">
+        <img class="login-logo" src="images/login-login.png" alt="图片走丢了！">
+        <div class="login-title">高 效 客 户 管 理 系 统</div>
+        <div class="login-write">
+            <div class="model1">
+                <span class="fa fa-user fa-user1"></span><input class="Verification-user" type="text"
+                                                                ng-model="nameLogin">
+            </div>
+            <div class="model1"><span class="fa fa-lock"></span><input type="password" class="Verification-password"
+                                                                       ng-model="pasLogin"></div>
+        </div>
+        <div class="remember-me">
+            <i class="page-check-p remember-me-icon" ng-click="rememberLoginIn()"></i>
+            <input class="remember-me-check" type="checkbox" style="display: none">&nbsp;
+            <span>记住我</span>
+        </div>
+        <div class="tishi">
+
+        </div>
+        <button class="sure-button" ng-click="sendMsg()">登录</button>
+    </div>
+
+</div>

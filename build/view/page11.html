@@ -1,0 +1,314 @@
+<div class="content-wrapper page1" style="margin: 0 20px">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-top: -40px">
+        <h1>
+            用户概况总览
+            <!--<small>Version 2.0</small>-->
+        </h1>
+        <h4 style="margin-top: 20px">
+            好友总数
+            <!--<small>Version 2.0</small>-->
+        </h4>
+        <!--<ol class="breadcrumb">-->
+        <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+        <!--<li class="active">Dashboard</li>-->
+        <!--</ol>-->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!--好友概况-总数-男女比例-->
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-gray"><i class="fa fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span style="margin-left: 10%" class="info-box-text">好友总数</span>
+                        <span style="margin-left: 10%;margin-top: 10px" class="info-box-number">846<small>人</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-blue"><i class="fa fa-male"></i></span>
+
+                    <div class="info-box-content">
+                        <span style="margin-left: 10%" class="info-box-text">男性比例</span>
+                        <span style="margin-left: 10%;margin-top: 10px" class="info-box-number">54<small>%</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-female"></i></span>
+
+                    <div class="info-box-content">
+                        <span style="margin-left: 10%" class="info-box-text">女性比例</span>
+                        <span style="margin-left: 10%;margin-top: 10px" class="info-box-number">46<small>%</small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+
+
+            <ul class=" si-ex-on  sidebar-menu1 slide-myself  col-sm-6 col-xs-12 "
+                style="margin-left:40px;margin-top: -80px;border: 1px solid darkgrey;position: absolute;z-index: 10;right: 12%;width: 11%">
+                <li class="treeview " style="width: 100%">
+                    <a href="" class="haha">
+                        <span>&#12288;选择设备/微信号</span>
+                        <span class="pull-right-container"><i style="position: relative;margin-left: 25px"
+                                                              class="fa fa-angle-down "></i></span>
+                    </a>
+                    <ul class="treeview-menu haha1">
+                        <li class="choseTelephone  choseWechatTrue">
+                            <a href="">
+
+                                <label class="point">
+
+                                    &nbsp;<i class="fa fa-check-circle-o"></i>&nbsp;&nbsp;选择设备号
+                                </label>
+
+                            </a>
+
+                        </li>
+                        <li style="border-bottom: 1px dashed lightgray;margin-left: -4px"
+                            class="choseTelephone choseTelephoneTrue">
+                            <a href="">
+                                <label class="point">
+
+                                    &nbsp;&nbsp;<i class="fa fa-circle-o"></i>&nbsp;&nbsp;选择微信号
+                                </label>
+                            </a>
+
+                        </li>
+                        <li class="choseTelephone">
+                            <a href="">
+                                <div class="form-group haha2" style="padding-top: 10px">
+                                    <label>
+                                        <p class="page-check-p">
+                                        <input data="0" type="checkbox"
+                                               class=" checkbox-toggle checkAllTelephone">
+                                        全选
+                                    </p>
+
+                                    </label>
+                                    <label>
+                                        <button data="0" type="button"
+                                                class="btn btn-default btn-xs checkbox-toggle checkbox-toggle-change"><i
+                                                class="fa fa-square-o"></i>
+                                        </button>
+                                        反选
+                                    </label>
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li class="choseTelephone" ng-repeat="x in data3" ng-mouseenter="mosego($index)">
+                            <a href="">
+                                <div class=" haha2">
+                                    <label>
+                                        <input type="checkbox"
+                                               class=" telephoneClass" data="{{x.state}}">
+                                        {{x.name}}
+                                    </label>
+                                    <span style="position: relative;display: inline-block;width: 20px;height: 20px;float: right"><i
+                                            style="margin-left: -5px" class="fa fa-angle-left"></i></span>
+                                </div>
+
+                            </a>
+
+                        </li>
+                        <li class="choseTelephone" style="padding-bottom: 10px">
+                            <a href="">
+                                <button style="margin-left: 2%;width: 84%;background-color:#3c8dbc;border: 1px solid transparent;color: #fff;box-shadow: none;border-radius: 2px "
+                                        type="button">确定
+                                </button>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!--点击选择微信时-->
+                    <ul class="treeview-menu haha1">
+                        <li class="choseWechat  choseWechatTrue">
+                            <a href="">
+
+                                <label class="point">
+
+                                    &nbsp;<i class="fa fa-circle-o"></i>&nbsp;&nbsp;选择设备号
+                                </label>
+
+                            </a>
+
+                        </li>
+                        <li style="border-bottom: 1px dashed lightgray;margin-left: -4px"
+                            class="choseWechat choseTelephoneTrue">
+                            <a href="">
+                                <label class="point">
+
+                                    &nbsp;&nbsp;<i class="fa fa-check-circle-o"></i>&nbsp;&nbsp;选择微信号
+                                </label>
+                            </a>
+
+                        </li>
+                        <li class="choseWechat">
+                            <a href="">
+                                <div class="form-group haha2" style="padding-top: 10px">
+                                    <label>
+                                        <button type="button" class="btn btn-default btn-xs checkbox-toggle"><i
+                                                class="fa fa-square-o"></i>
+                                        </button>
+                                        全选
+                                    </label>
+                                    <label>
+                                        <button type="button" data="0"
+                                                class="btn btn-default btn-xs checkbox-toggle-change"><i
+                                                class="fa fa-square-o"></i>
+                                        </button>
+                                        反选
+                                    </label>
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li class="choseWechat" ng-repeat="x in data4">
+                            <a href="">
+                                <div class="form-group haha2">
+                                    <label>
+                                        <input type="checkbox"
+                                               class="minimal">
+                                        {{x.name}}
+                                    </label>
+                                </div>
+
+                            </a>
+
+                        </li>
+                        <li class="choseWechat" style="padding-bottom: 10px">
+                            <a href="">
+                                <button style="margin-left: 2%;width: 84%;background-color:#3c8dbc;border: 1px solid transparent;color: #fff;box-shadow: none;border-radius: 2px "
+                                        type="button">确定
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <!-- /.info-box -->
+            </ul>
+            </li>
+            </ul>
+            <div ng-show="showMe"
+                 style="position: absolute;margin-top:40px;right: 3%;z-index: 10;background-color: white;padding-top: 10px;border: 1px solid darkgrey;"
+                 class="telephone col-md-1 col-sm-6 col-xs-12">
+                <div class="form-group haha2 checkAll" ng-repeat="x in data2" data="{{x.id}}">
+                    <label>
+                        <input type="checkbox" data="false" data1="{{$index}}" data2="{{x.state}}"
+                               class="minimal telephoneOneCheck">
+
+                        {{x.num}}
+
+                    </label>
+                </div>
+            </div>
+
+            <!-- /.col -->
+            <!--<div class="col-md-3 col-sm-6 col-xs-12">-->
+            <!--<div class="info-box">-->
+            <!--<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>-->
+
+            <!--<div class="info-box-content">-->
+            <!--<span class="info-box-text">New Members</span>-->
+            <!--<span class="info-box-number">2,000</span>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.info-box-content &ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.info-box &ndash;&gt;-->
+            <!--</div>-->
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">好友分布</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-8  col-sm-6 col-xs-12" style="padding-bottom: 30px">
+                                <!--<p class="text-center">-->
+                                <!--<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>-->
+                                <!--</p>-->
+
+                                <div id="container1" style="height: 350px">
+                                    <!-- Sales Chart Canvas -->
+                                    <!--<canvas id="salesChart" style="height: 180px;"></canvas>-->
+                                </div>
+                                <!-- /.chart-responsive -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div id="chat-one" style="height:350px;"></div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+                        <div class="row" style="padding-bottom: 30px">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div id="chat-two" style="height: 350px">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div id="chat-sree" style="height:350px;"></div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div id="chat-four" style="height:350px;"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 30px">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div id="chat-five" style="height: 350px">
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-6 col-xs-12">
+
+                                <h3 style="text-align: center;font-size: 20px;font-weight: bolder;margin-top:15px">
+                                    标签墙</h3>
+
+                                <div id="my_favorite_latin_words" style="height:350px;width: 100%"></div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+
+
+                    <!-- /.box-footer -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
